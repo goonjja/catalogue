@@ -18,6 +18,17 @@ var protectJSON = require('./lib/protectJSON');
 
 var app = express();
 app.use(express.logger('dev')); // Log requests to the console
+
+app.use('/rebuild', function (req, res, next) {
+    var sys = require('sys')
+    var exec = require('child_process').exec;
+
+    function puts(error, stdout, stderr) {
+        sys.puts(stdout);
+    }
+    exec("cd ../client/ && grunt build", puts);
+    res.redirect('/');
+});
 // Serve up the favicon
 app.use(express.favicon(config.server.distFolder + '/favicon.ico'));
 
