@@ -1,0 +1,7 @@
+*.sw?
+logs/*
+!.gitkeep
+client/node_modules
+client/dist
+server/node_modules
+

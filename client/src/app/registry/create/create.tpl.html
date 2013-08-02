@@ -1,0 +1,18 @@
+<div class='row-fluid'>
+    <div class='span12'>
+        <h3>Новый справочник</h3>
+        <hr/>
+    </div>
+</div>
+<div class='row-fluid'>
+    <div class='span6'>
+        <form name='form' novalidate>
+            <input name='fName' ng-model='regName' type="text" placeholder="Название справочника" ng-minlength='5' required/>
+            <br/>
+            <div ng-show="form.fName.$invalid && form.fName.$dirty" class='alert alert-error'>
+                <span>Название должно быть не короче 5 символов</span>
+            </div>
+            <button class='btn btn-success' ng-click="save()" ng-disabled="form.$invalid">Сохранить</button>
+        </form>
+    </div>
+</div>
